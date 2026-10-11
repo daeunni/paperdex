@@ -1,0 +1,5 @@
+# 개인 데이터는 깃에 올리지 않기
+data/
+*.tmp
+.DS_Store
+.vercel

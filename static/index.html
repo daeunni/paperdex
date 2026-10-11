@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff0f6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PaperDex · 논문 도감</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🐱</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@2.39.3/dist/galmuri.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.dataset.theme = localStorage.getItem('paperdex.theme') || 'soft';</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js"></script>
+  <script defer src="sprites.js"></script>
+  <script defer src="cluster.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#/"><span id="logoSprite"></span><span>PaperDex</span></a>
+    <nav class="nav">
+      <a href="#/" data-nav="home">홈</a>
+      <a href="#/list" data-nav="list">전체 목록</a>
+      <a href="#/clusters" data-nav="clusters">클러스터</a>
+      <a href="#/ideas" data-nav="ideas">아이디어 랩</a>
+    </nav>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="🔍 논문, 태그, 대화 검색">
+    </form>
+    <button class="btn btn-white btn-sm" id="themeBtn" title="테마 바꾸기">🎨</button>
+    <a class="btn btn-pink" href="#/add">+ 기록</a>
+  </header>
+  <main id="view" class="container"></main>
+  <footer class="footer container">
+    <a class="linkbtn" id="exportBtn">💾 내보내기 (JSON)</a>
+    <label class="linkbtn">📥 가져오기<input type="file" id="importInput" accept=".json,application/json" hidden></label>
+    <span class="muted" id="storageInfo">💻 로컬에 저장 중 (~/paperdex/data)</span>
+  </footer>
+  <div id="toast" class="toast"></div>
+</body>
+</html>
